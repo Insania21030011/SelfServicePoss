@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\profileController;
-
+use Illuminate\Routing\Route as RoutingRoute;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,5 +52,11 @@ Route::get('/about/{search}', function () {
 //     return view ('profile', compact('nama'));
 // });
 Route::resource('user', UserController::class);
-Route::resource('produk', ProdukController::class);
+Route::middleware(['auth', 'user'])->group(function() {
+    Route::resource('produk', ProdukController::class);
+});
 Route::resource('profile', ProfileController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
