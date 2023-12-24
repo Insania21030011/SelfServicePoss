@@ -50,7 +50,7 @@
     </head>
     <body>
         <h1>Daftar User</h1>
-        <a href="{{route('users.create')}}"><button>Tambah User</button>
+        <a href="{{route('user.create')}}"><button>Tambah User</button>
 
         <table>
             <thead>
@@ -68,9 +68,9 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
                     <td> 
-                        <a href="{{ route('users.edit', $user->id) }}"><button>Edit</button></a>
-                        <a href="{{ route('users.show', $user->id) }}"><button>Show</button></a>
-                        <form action="{{route('users.destroy', $user->id)}}" method="post" style="display: inline;">
+                        <a href="{{ route('user.edit', $user->id) }}"><button>Edit</button></a>
+                        <a href="{{ route('user.show', $user->id) }}"><button>Show</button></a>
+                        <form action="{{route('user.destroy', $user->id)}}" method="post" style="display: inline;">
                         @csrf
                         @method ('DELETE')
                         <button type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Ini?')">Hapus</button>

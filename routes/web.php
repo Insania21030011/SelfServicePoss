@@ -52,9 +52,9 @@ Route::get('/about/{search}', function () {
 //     return view ('profile', compact('nama'));
 // });
 Route::resource('user', UserController::class);
-Route::middleware(['auth', 'user'])->group(function() {
-    Route::resource('produk', ProdukController::class);
-});
+
+Route::resource('produk', ProdukController::class);
+
 Route::resource('profile', ProfileController::class);
 
 Auth::routes();
