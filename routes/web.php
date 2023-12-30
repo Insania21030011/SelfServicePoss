@@ -20,12 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+
 Route::get('/about', function () {
     return 'Halaman About';
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/produk', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/about/{search}', function () {
     $data = [
@@ -57,6 +60,5 @@ Route::resource('produk', ProdukController::class);
 
 Route::resource('profile', ProfileController::class);
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
